@@ -38,9 +38,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'menu',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
+    # per the docs, the order of debug_toolbar is important, it should
+    # be as early as possible in the list but after any middlewares that
+    # encode the response's content
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -102,3 +107,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# For Django Debug Toolbar
+INTERNAL_IPS = ['127.0.0.1',]
