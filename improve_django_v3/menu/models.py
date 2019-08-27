@@ -21,6 +21,9 @@ class Menu(models.Model):
     # We'll set a reasonable default of 2 years from now
     expiration_date = models.DateTimeField(default=set_expiry_date)
 
+    class Meta:
+        ordering = ['-expiration_date']
+
     def __str__(self):
         return self.season
 
