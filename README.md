@@ -1,6 +1,10 @@
 Project 9: Improve a Django Project
 ===================================
 
+**WARNING: Security Vulnerability**
+There are multiple vulnerabilities with versions of Django below 1.11.19 (see [CVE-2019-6975](https://nvd.nist.gov/vuln/detail/CVE-2019-6975), [CVE-2019-3498](https://nvd.nist.gov/vuln/detail/CVE-2019-3498), [CVE-2017-7234](https://nvd.nist.gov/vuln/detail/CVE-2017-7234), and [CVE-2017-7233](https://nvd.nist.gov/vuln/detail/CVE-2017-7233)). These vulnerabilities have not been addressed as part of the project specification is to use the packages according to the supplied `requirements.txt`<sup>[1](#footnote1)</sup.
+
+
 Installation
 ------------
 - Clone the rep
@@ -46,3 +50,9 @@ Testing
 -------
 
 TODO
+
+
+
+Footnotes
+---------
+1. <a href="footnote1"> </a> Note that one deviation has been made from the provided `requirements.txt`: the version of django-debug-toolbar specified by `requirements.txt` is exactly v1.0 and the version of Django specified in the same file is exactly v1.9.9. However, django-debug-toolbar 1.0 is explicitly incompatible with Django 1.9.9. To make the project application run it was necessary to substitute a newer version of django-debug-toolbar, in this case v1.9.1.
