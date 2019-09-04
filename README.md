@@ -2,7 +2,7 @@ Project 9: Improve a Django Project
 ===================================
 
 **WARNING: Security Vulnerability**  
-There are multiple vulnerabilities with versions of Django below 1.11.19 (see [CVE-2019-6975](https://nvd.nist.gov/vuln/detail/CVE-2019-6975), [CVE-2019-3498](https://nvd.nist.gov/vuln/detail/CVE-2019-3498), [CVE-2017-7234](https://nvd.nist.gov/vuln/detail/CVE-2017-7234), and [CVE-2017-7233](https://nvd.nist.gov/vuln/detail/CVE-2017-7233)). These vulnerabilities have not been addressed as part of the project specification is to use the packages according to the supplied `requirements.txt`<sup>[1](#footnote1)</sup.
+There are multiple vulnerabilities with versions of Django below 1.11.19 (see [CVE-2019-6975](https://nvd.nist.gov/vuln/detail/CVE-2019-6975), [CVE-2019-3498](https://nvd.nist.gov/vuln/detail/CVE-2019-3498), [CVE-2017-7234](https://nvd.nist.gov/vuln/detail/CVE-2017-7234), and [CVE-2017-7233](https://nvd.nist.gov/vuln/detail/CVE-2017-7233)). These vulnerabilities have not been addressed as part of the project specification is to use the packages according to the supplied `requirements.txt`<sup>[1](#footnote1)</sup>.
 
 
 Installation
