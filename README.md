@@ -55,4 +55,4 @@ TODO
 
 Footnotes
 ---------
-1. <a href="footnote1"> </a> Note that one deviation has been made from the provided `requirements.txt`: the version of django-debug-toolbar specified by `requirements.txt` is exactly v1.0 and the version of Django specified in the same file is exactly v1.9.9. However, django-debug-toolbar 1.0 is explicitly incompatible with Django 1.9.9. To make the project application run it was necessary to substitute a newer version of django-debug-toolbar, in this case v1.9.1.
+1. <a name="footnote1"> </a> Note that one deviation has been made from the provided `requirements.txt`: the version of django-debug-toolbar specified by `requirements.txt` is exactly v1.0 and the version of Django specified in the same file is exactly v1.9.9. However, django-debug-toolbar 1.0 is explicitly incompatible with Django 1.9.9. To make the project application run it was necessary to substitute a newer version of django-debug-toolbar, in this case v1.9.1.
