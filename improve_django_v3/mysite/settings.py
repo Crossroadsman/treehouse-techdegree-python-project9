@@ -42,16 +42,16 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    # per the docs, the order of debug_toolbar is important, it should
-    # be as early as possible in the list but after any middlewares that
-    # encode the response's content
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    # per the docs, the order of debug_toolbar is important, it should
+    # be as early as possible in the list but after any middlewares that
+    # encode the response's content
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
