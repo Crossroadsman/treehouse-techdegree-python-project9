@@ -23,7 +23,7 @@ Feature Checklist
 
 ### Base Features ###
 
-- [ ] Use the provided `requirements.txt` to install needed packages for the project
+- [ ]<sup>[1](#footnote1)</sup> Use the provided `requirements.txt` to install needed packages for the project
 - [ ] Use `django-debug-toolbar` to find places where the database queries:
   - [ ] run too long
   - [ ] hit the database too many times
