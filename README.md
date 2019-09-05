@@ -24,10 +24,10 @@ Feature Checklist
 ### Base Features ###
 
 - [x] <sup>[1](#footnote1)</sup> Use the provided `requirements.txt` to install needed packages for the project
-- [ ] Use `django-debug-toolbar` to find places where the database queries:
-  - [ ] run too long (max 60ms)
-  - [ ] hit the database too many times (max 5 queries)
-- [ ] Use `django-debug-toolbar` to find places where the templates aren't properly using inheritance
+- [x] Use `django-debug-toolbar` to find places where the database queries:
+  - [x] run too long (max 60ms)
+  - [x] hit the database too many times (max 5 queries)
+- [x] Use `django-debug-toolbar` to find places where the templates aren't properly using inheritance
 - [ ] Appropriate Model Fields
   - [ ] Check that the models are using appropriate fields for the type of data they store. 
   - [ ] If not, correct them and
