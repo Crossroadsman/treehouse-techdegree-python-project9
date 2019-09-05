@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>Change menu</h1>
-                <form action="" method="POST">{% csrf_token %}
+                <!-- original hardcoded form -->
+                <!-- <form action="" method="POST">{% csrf_token %}
                     <label for="season">Season:</label>
                     <input type="text" name="season" value="{{ menu.season }}">
                     <br />
@@ -24,6 +25,13 @@
                     <input type="text" name="expiration_date" value="{{ menu.expiration_date|date:"m/d/Y" }}">
                     <br />
                     <input type="submit" value="Submit" /> 
+                </form> -->
+
+                <!-- new Django Form -->
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit">
                 </form>
             </div>
         </div>

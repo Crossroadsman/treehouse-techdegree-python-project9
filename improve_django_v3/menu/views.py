@@ -40,14 +40,20 @@ def create_new_menu(request):
 
 def edit_menu(request, pk):
     menu = get_object_or_404(Menu, pk=pk)
-    items = Item.objects.all()
+    form = MenuForm()
+    # items = Item.objects.all()
     if request.method == "POST":
-        menu.season = request.POST.get('season', '')
-        menu.expiration_date = datetime.datetime.strptime(request.POST.get('expiration_date', ''), '%m/%d/%Y')
-        menu.items = request.POST.get('items', '')
-        menu.save()
+        form = MenuForm(request.POST, instance=menu)
+        if form.is_valid():
+            menu = form.save()
+        
+        # menu.season = request.POST.get('season', '')
+        # menu.expiration_date = datetime.datetime.strptime(request.POST.get('expiration_date', ''), '%m/%d/%Y')
+        # menu.items = request.POST.get('items', '')
+        # menu.save()
 
     return render(request, 'menu/change_menu.html', {
         'menu': menu,
-        'items': items,
+        # 'items': items,
+        'form': form,
         })
