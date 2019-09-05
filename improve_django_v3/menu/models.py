@@ -61,9 +61,15 @@ class Menu(models.Model):
     #   concluded that actual use deviates from the earliest design 
     #   expectations, we are increasing the max_length to correspond to 
     #   expected usage.
-    # - make unique=True: In order for this field to be useful as a name, it
-    #   must uniquely identify the menu.
-    season = models.CharField(max_length=200, unique=True)
+    #
+    # Note about unique: in a perfect world, we would want this field to be
+    # useful as a name and as such for it to uniquely identify a particular
+    # menu (especially since this is the only field on the model that could
+    # be used to describe a particular menu). However, we have a lot of 
+    # existing records and there is no easy way to make these 
+    # already-non-unique names unique. As such, we're not setting
+    # unique=True
+    season = models.CharField(max_length=200)
     
     items = models.ManyToManyField('Item', related_name='items')
 
