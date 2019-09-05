@@ -1,5 +1,7 @@
 {% extends 'menu/layout.html' %}
 
+{# For historical reasons, this template is called "menu_edit" but is actually for adding a new menu, NOT editing an existing one #}
+
 {% block title %}{{ block.super }}{% endblock %}
 {% block h1 %}{{ block.super }}{% endblock %}
 
@@ -7,7 +9,7 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
-                <h1>Change menu</h1>
+                <h1>Add menu</h1>
                 <form method="POST" class="menu-form">{% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="save btn btn-default">Save</button>
