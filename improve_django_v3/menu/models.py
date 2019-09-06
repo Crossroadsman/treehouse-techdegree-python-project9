@@ -71,7 +71,7 @@ class Menu(models.Model):
     # unique=True
     season = models.CharField(max_length=200)
     
-    items = models.ManyToManyField('Item', related_name='items')
+    items = models.ManyToManyField('Item', related_name='menus')
 
     # Note: the difference between `auto_now_add=True` and 
     # `default=timezone.now` is that the former disallows manually specifying
@@ -97,7 +97,7 @@ class Item(models.Model):
     chef = models.ForeignKey('auth.User')
     created_date = models.DateTimeField(auto_now_add=True)
     standard = models.BooleanField(default=False)
-    ingredients = models.ManyToManyField('Ingredient')
+    ingredients = models.ManyToManyField('Ingredient', related_name='items')
 
     def __str__(self):
         return self.name
