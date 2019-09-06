@@ -28,13 +28,13 @@ Feature Checklist
   - [x] run too long (max 60ms)
   - [x] hit the database too many times (max 5 queries)
 - [x] Use `django-debug-toolbar` to find places where the templates aren't properly using inheritance
-- [ ] Appropriate Model Fields
-  - [ ] Check that the models are using appropriate fields for the type of data they store. 
-  - [ ] If not, correct them and
-  - [ ] create migrations to handle the data
-- [ ] Forms
-  - [ ] Check forms are using correct fields and validation
-  - [ ] If not, fix
+- [x] Appropriate Model Fields
+  - [x] Check that the models are using appropriate fields for the type of data they store. 
+  - [x] If not, correct them and
+  - [x] create migrations to handle the data
+- [x] Forms
+  - [x] Check forms are using correct fields and validation
+  - [x] If not, fix
 - [ ] Tests
   - [ ] Use `coverage.py` to check code coverage (min 75%)
 - [ ] Complies with most common PEP 8 standards of style.
@@ -42,9 +42,9 @@ Feature Checklist
 ### Extra Credit Features ###
 
 - [ ] Increase test coverage to >= 90%
-- [ ] Decrease combined query times on all views to 60ms or less
-- [ ] Add migrations to correct existing data when data types change
-- [ ] Add custom form validators
+- [x] Decrease combined query times on all views to 60ms or less
+- [x] Add migrations to correct existing data when data types change
+- [x] Add custom form validators
 
 Testing
 -------
