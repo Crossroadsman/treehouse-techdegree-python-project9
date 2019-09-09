@@ -35,13 +35,13 @@ Feature Checklist
 - [x] Forms
   - [x] Check forms are using correct fields and validation
   - [x] If not, fix
-- [ ] Tests
-  - [ ] Use `coverage.py` to check code coverage (min 75%)
+- [x] Tests
+  - [x] Use `coverage.py` to check code coverage (min 75%)
 - [ ] Complies with most common PEP 8 standards of style.
 
 ### Extra Credit Features ###
 
-- [ ] Increase test coverage to >= 90%
+- [x] Increase test coverage to >= 90%
 - [x] Decrease combined query times on all views to 60ms or less
 - [x] Add migrations to correct existing data when data types change
 - [x] Add custom form validators
