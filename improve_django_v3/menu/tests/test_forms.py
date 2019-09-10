@@ -74,9 +74,6 @@ class MenuFormTests(MenuTestCase):
             }
         )
 
-        form.is_valid()
-        print(form.errors)
-
         self.assertTrue(form.is_valid())
 
     def test_invalid_season_fails_validation(self):

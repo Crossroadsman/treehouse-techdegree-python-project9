@@ -46,4 +46,4 @@ def edit_menu(request, pk):
     return render(request, 'menu/change_menu.html', {
         'menu': menu,
         'form': form,
-        })
+    })

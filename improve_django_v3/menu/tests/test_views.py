@@ -1,3 +1,5 @@
+import datetime
+
 # Note: resolve and reverse are in django.urls in modern versions of Django
 from django.core.urlresolvers import resolve, reverse
 from django.test import Client
@@ -114,12 +116,37 @@ class CreateNewMenuViewTests(ViewTestCase):
         self.template += "menu_edit.html"
         self.url += "new/"
 
+    def test_redirects_to_menu_detail_on_valid_POST(self):
+        """Note: this test also implicitly tests that a valid post
+        creates a valid db model, since we need to fetch that model
+        to get the PK to build the redirect path
+        """
+        self.create_simple_menu()  # creates the associated models we need
+
+        # create data for POSTing
+        postdata = {
+            'season': 'test season 2019',
+            'items': [1, 2, 3],  # these are the pks of the items created above
+            'expiration_date': "2020-01-31 13:45:01"
+        }
+
+        response = self.client.post(
+            reverse(self.name),
+            data=postdata
+        )
+
+        menu_pk = Menu.objects.get(season='test season 2019').pk
+        expected_redirect_target = '/menu/{}/'.format(menu_pk)
+
+        self.assertRedirects(response, expected_redirect_target)
+
 
 class EditMenuViewTests(ViewTestCase):
 
     def setUp(self):
         super().setUp()
-
+        
+        # creates the associated models we need
         self.menu = self.create_simple_menu()
 
         self.abstract = False
@@ -128,3 +155,20 @@ class EditMenuViewTests(ViewTestCase):
         self.target_view = edit_menu
         self.template += "change_menu.html"
         self.url += "{}/edit/".format(self.menu.pk)
+
+    def test_updates_db_on_valid_POST(self):
+
+        # create data for POSTing
+        postdata = {
+            'season': 'test season 2019',
+            'items': [2, 3],  # these are the pks of the items created above
+            'expiration_date': "2020-01-31 13:45:01"
+        }
+
+        self.client.post(
+            reverse(self.name, kwargs=self.kwargs),
+            data=postdata
+        )
+
+        # this line will fail if the test fails
+        Menu.objects.get(season='test season 2019').pk
