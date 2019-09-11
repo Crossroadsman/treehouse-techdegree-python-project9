@@ -16,7 +16,15 @@ Installation
 Usage
 -----
 - The application can be run using `python manage.py runserver 0:8000`
-- Tests can be run using `python manage.py test`. Detailed HTML test reports will be generated and saved in the cover subdirectory
+- Tests can be run using `python manage.py test`
+- Coverage reports an be generated using `coverage run manage.py test`
+- By default, the app runs in unauthenticated mode, which means that no add/change options are visible on the user-facing
+  site. To use the add/change menu functionality:
+  1. create a user (e.g., `python manage.py createsuperuser`)
+  2. run the server (`python manage.py runserver 0:8000`)
+  3. Use the admin panel to log in your user (browse to `localhost:8000/admin`)
+  4. Click the "view site" link (or enter `localhost:8000` in your browser address bar)
+
 
 Feature Checklist
 -----------------
