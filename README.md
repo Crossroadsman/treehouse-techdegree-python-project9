@@ -37,7 +37,7 @@ Feature Checklist
   - [x] If not, fix
 - [x] Tests
   - [x] Use `coverage.py` to check code coverage (min 75%)
-- [ ] Complies with most common PEP 8 standards of style.
+- [x] Complies with most common PEP 8 standards of style.
 
 ### Extra Credit Features ###
 
