@@ -49,7 +49,54 @@ Feature Checklist
 Testing
 -------
 
-TODO
+### [Test Running](https://docs.djangoproject.com/en/2.2/topics/testing/overview/#running-tests) ###
+
+- Run all tests:
+  ```console
+   $ python manage.py test
+   ```
+
+- Run a single test suite:
+  ```console
+  $ python manage.py test menu
+  ```
+
+- Run a single test file:
+  ```console
+  $ python manage.py test menu.tests.test_models
+  ```
+
+- Run a single test case:
+  ```console
+  $ python manage.py test menu.tests.test_models.MenuModelTests
+  ```
+
+- Run a single test method:
+  ```console
+  $ python manage.py test accounts.tests.test_models.MenuModelTests.test_create_model_database_has_correct_data
+  ```
+
+### Coverage ###
+
+- Run coverage:
+  ```console
+  $ coverage run manage.py test [the-app-to-test]
+  ```
+
+- Show the simple coverage report:
+  ```console
+  $ coverage report
+  ```
+
+- Generate a detailed HTML report (after coverage has been run):
+  ```console
+  $ coverage html
+  ```
+
+- Erase the coverage report
+  ```console
+  $ coverage erase
+  ```
 
 
 
