@@ -24,12 +24,12 @@ class Menu(models.Model):
     # It's not entirely clear what the 'season' field is intended for.
     # The short `max_length=20` in the original code suggests that this field
     # was intended to reference a relatively small number of possible
-    # seasons, in which case it would seem better as a FK relation to a 
-    # dedicated Season object (FK not MTM because a seasonal menu 'belongs' to 
-    # a particular season, but a season might have multiple menus (e.g., a 
+    # seasons, in which case it would seem better as a FK relation to a
+    # dedicated Season object (FK not MTM because a seasonal menu 'belongs' to
+    # a particular season, but a season might have multiple menus (e.g., a
     # drinks menu, a dessert menu, etc)).
     # Alternatively, the actual data provided has many menus with totally
-    # unique string values (as distinct from lots of similar or identical 
+    # unique string values (as distinct from lots of similar or identical
     # string values). This might suggest that the season field is being used
     # not as a way of tying the menu to a particular season, but simply as a
     # name for the menu. If the intent is to use this as a name for the menu
@@ -42,12 +42,12 @@ class Menu(models.Model):
     # the values themselves what the actual usage ought to be. Unfortunately,
     # the values are just a load of randomly-generated lorem ipsum code that
     # offers no clues about the real intent of this field. However, the sheer
-    # number of values (504) hints that season is just a name and not a 
+    # number of values (504) hints that season is just a name and not a
     # reference to a time of year.
     # Thus we will configure the field as follows:
     # - leave the fieldname as `season`: although this fieldname is ambiguous
     #   and thus not ideal, it was clearly chosen for a reason, perhaps there
-    #   is some domain-specific knowledge that we lack about restaurant menus 
+    #   is some domain-specific knowledge that we lack about restaurant menus
     #   that informs this fieldname choice, so we will leave it as-is.
     # - leave the field as a CharField: since this is the name of the menu and
     #   not a reference to another 'thing', it doesn't make sense for this
@@ -55,25 +55,25 @@ class Menu(models.Model):
     #   not arbitrarily so, thus CharField is a better choice than TextField
     # - make max_length=200: The other objects in this project allow names up
     #   to 200 characters. 20 is very limiting and hints that at some time in
-    #   this project's history, it was expected that season would be a 
-    #   reference to a season (e.g., 'fall') rather than a name 
+    #   this project's history, it was expected that season would be a
+    #   reference to a season (e.g., 'fall') rather than a name
     #   (e.g., 'Fall 2018 Dinner Menu' or 'Appetizers and Shareables'). Having
-    #   concluded that actual use deviates from the earliest design 
-    #   expectations, we are increasing the max_length to correspond to 
+    #   concluded that actual use deviates from the earliest design
+    #   expectations, we are increasing the max_length to correspond to
     #   expected usage.
     #
     # Note about unique: in a perfect world, we would want this field to be
     # useful as a name and as such for it to uniquely identify a particular
     # menu (especially since this is the only field on the model that could
-    # be used to describe a particular menu). However, we have a lot of 
-    # existing records and there is no easy way to make these 
+    # be used to describe a particular menu). However, we have a lot of
+    # existing records and there is no easy way to make these
     # already-non-unique names unique. As such, we're not setting
     # unique=True
     season = models.CharField(max_length=200)
-    
+
     items = models.ManyToManyField('Item', related_name='menus')
 
-    # Note: the difference between `auto_now_add=True` and 
+    # Note: the difference between `auto_now_add=True` and
     # `default=timezone.now` is that the former disallows manually specifying
     # a value (i.e., it can *only* be 'now'); the latter merely makes 'now'
     # the default, but can be manually overridden.

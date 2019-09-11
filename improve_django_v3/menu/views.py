@@ -10,8 +10,12 @@ from .forms import *
 
 
 def menu_list(request):
-    menus = Menu.objects.filter(expiration_date__gte=timezone.now()).prefetch_related('items')
-    return render(request, 'menu/list_all_current_menus.html', {'menus': menus})
+    menus = Menu.objects.filter(
+        expiration_date__gte=timezone.now()
+    ).prefetch_related('items')
+    return render(
+        request, 'menu/list_all_current_menus.html', {'menus': menus}
+    )
 
 
 def menu_detail(request, pk):
@@ -42,7 +46,7 @@ def edit_menu(request, pk):
         form = MenuForm(request.POST, instance=menu)
         if form.is_valid():
             menu = form.save()
-        
+
     return render(request, 'menu/change_menu.html', {
         'menu': menu,
         'form': form,

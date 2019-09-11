@@ -28,7 +28,7 @@ class ViewTestCase(MenuTestCase):
         self.url = '/menu/'
 
         self.client = Client()
-    
+
     # Test Methods
     # ------------
     def test_url_resolves_to_correct_view(self):
@@ -64,7 +64,7 @@ class ViewTestCase(MenuTestCase):
 
 
 class MenuListViewTests(ViewTestCase):
-    
+
     def setUp(self):
         super().setUp()
 
@@ -145,7 +145,7 @@ class EditMenuViewTests(ViewTestCase):
 
     def setUp(self):
         super().setUp()
-        
+
         # creates the associated models we need
         self.menu = self.create_simple_menu()
 

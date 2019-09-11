@@ -26,13 +26,12 @@ VALID_MENU_DATA = {
 
 
 class MenuTestCase(TestCase):
-    
+
     # Setup and teardown
     # ------------------
     def setUp(self):
 
         self.abstract = True
-
 
     # Helper Methods
     # --------------
@@ -51,7 +50,7 @@ class MenuTestCase(TestCase):
         return user
 
     def create_valid_item(self, chef, ingredients, **kwargs):
-        """chef is a User object, ingredients is a queryset of Ingredient 
+        """chef is a User object, ingredients is a queryset of Ingredient
         objects or a list of ingredient PKs
         """
         valid_data = {**VALID_ITEM_DATA, 'chef': chef}
@@ -64,7 +63,7 @@ class MenuTestCase(TestCase):
         return item
 
     def create_valid_menu(self, items, **kwargs):
-        """items is a non-empty queryset of Item objects or a 
+        """items is a non-empty queryset of Item objects or a
         list of item PKs
         """
         menu = Menu(**VALID_MENU_DATA)
@@ -100,7 +99,9 @@ class MenuTestCase(TestCase):
             'C potato', 'C steak', 'C mushrooms',
         ]:
             self.create_valid_ingredient(name=ingredient)
-        for key, value in {'A': 'BLT', 'B': 'Carrot Soup', 'C': 'Steak Frites'}.items():
+        for key, value in {
+            'A': 'BLT', 'B': 'Carrot Soup', 'C': 'Steak Frites'
+        }.items():
             self.create_valid_item(
                 chef,
                 Ingredient.objects.filter(name__startswith=key),

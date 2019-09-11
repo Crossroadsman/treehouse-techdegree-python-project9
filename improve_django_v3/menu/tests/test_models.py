@@ -6,7 +6,7 @@ from menu.models import Menu, Item, Ingredient
 
 
 class MenuModelTests(MenuTestCase):
-    
+
     # Setup and teardown
     # ------------------
     def setUp(self):
@@ -73,7 +73,9 @@ class ItemModelTests(MenuTestCase):
     # -----
     def test_create_model_database_has_correct_data(self):
         expected_ingredients = {'A bread', 'A lettuce', 'A tomato', 'A bacon'}
-        test_ingredients = set(self.test_item.ingredients.values_list('name', flat=True))
+        test_ingredients = set(
+            self.test_item.ingredients.values_list('name', flat=True)
+        )
 
         self.assertEqual('BLT', self.test_item.name)
         self.assertEqual('A delicious sandwich', self.test_item.description)
@@ -81,9 +83,8 @@ class ItemModelTests(MenuTestCase):
         self.assertEqual(expected_ingredients, test_ingredients)
 
 
-
 class IngredientModelTests(MenuTestCase):
-    
+
     # Setup and teardown
     # ------------------
     def setUp(self):
@@ -91,7 +92,9 @@ class IngredientModelTests(MenuTestCase):
 
         self.test_model_data = VALID_INGREDIENT_DATA
         self.create_valid_ingredient()
-        self.test_ingredient = Ingredient.objects.get(name=self.test_model_data['name'])
+        self.test_ingredient = Ingredient.objects.get(
+            name=self.test_model_data['name']
+        )
 
     # Tests
     # -----
@@ -109,4 +112,3 @@ class IngredientModelTests(MenuTestCase):
             db_model,
             self.test_ingredient
         )
-

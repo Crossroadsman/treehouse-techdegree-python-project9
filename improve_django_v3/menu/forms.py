@@ -32,7 +32,9 @@ class MenuForm(forms.ModelForm):
 
         now = timezone.now()
         if expiration_date < now:
-            raise forms.ValidationError("expiration date must be in the future")
+            raise forms.ValidationError(
+                "expiration date must be in the future"
+            )
         return expiration_date
 
     class Meta:
