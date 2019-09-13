@@ -11,7 +11,6 @@ Installation
 - Create and activate a venv
 - To run the application install the required packages using `pip install -r requirements.txt` from the 
   [`improve_django_v3`](https://github.com/Crossroadsman/treehouse-techdegree-python-project9/tree/master/improve_django_v3) folder
-- To run tests and generate coverage reports also install the test-specific packages using `pip install -r test_requirements.txt`
 
 Usage
 -----
