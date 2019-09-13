@@ -47,7 +47,7 @@ def edit_menu(request, pk):
         return render(request, 'menu/change_menu.html', {
             'form': form,
         })
-    
+
     else:  # POST
         form = MenuForm(request.POST, instance=menu)
         if form.is_valid():
