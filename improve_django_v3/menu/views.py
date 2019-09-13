@@ -1,9 +1,6 @@
-from datetime import datetime
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from django.utils import timezone
-from django.core.exceptions import ObjectDoesNotExist
 
 from .models import *
 from .forms import *
@@ -40,14 +37,19 @@ def create_new_menu(request):
 
 
 def edit_menu(request, pk):
-    menu = get_object_or_404(Menu, pk=pk)
-    form = MenuForm(instance=menu)
-    if request.method == "POST":
+    try:
+        menu = Menu.objects.prefetch_related('items').get(pk=pk)
+    except models.Menu.DoesNotExist:
+        raise Http404
+
+    if request.method != "POST":
+        form = MenuForm(instance=menu)
+        return render(request, 'menu/change_menu.html', {
+            'form': form,
+        })
+    
+    else:  # POST
         form = MenuForm(request.POST, instance=menu)
         if form.is_valid():
             menu = form.save()
-
-    return render(request, 'menu/change_menu.html', {
-        'menu': menu,
-        'form': form,
-    })
+            return redirect('menu_detail', pk=pk)
